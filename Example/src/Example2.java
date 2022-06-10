@@ -20,26 +20,46 @@ public class Example2 {
 	 * 7. pc : 7, 사용자 : 7 => 결과 : 정답입니다. 모든 프로세서는 정지(System.exit(0))
 	 * 배열x
 	 */
-	private int pno;
-	private int uno;
-	private String result;
+//	private int pno;
+//	private int uno;
+//	private String result;
+//	
+//	public String game(int p, int u) {
+//		this.pno = p;
+//		this.uno = u;	
+//			
+//		if(this.pno<this.uno) {
+//			this.result = "DOWN";
+//		}else if(this.pno>this.uno){
+//			this.result = "UP";
+//		}else {
+//			this.result = "정답입니다.";
+//			
+//		}
+//			
+//		
+//		//System.out.println(p+" "+u);
+//		return this.result;
+//	}
 	
-	public String game(int p, int u) {
-		this.pno = p;
-		this.uno = u;	
-			
-		if(this.pno<this.uno) {
-			this.result = "DOWN";
-		}else if(this.pno>this.uno){
-			this.result = "UP";
-		}else {
-			this.result = "정답입니다.";
-			
+	//22
+	private int val1; //pc
+	private int val2; //user
+	private String msg;	//결과메세지
+	public void randomck(int pc,int user) {	//setter (인수값 받음)
+		this.val1 = pc;
+		this.val2 = user;
+		if(this.val1>this.val2) {
+			this.msg = "UP";
+		} else if(this.val1<this.val2) {
+			this.msg = "DOWN";
+		} else {
+			this.msg = "와.. 정답...!";
 		}
-			
-		
-		//System.out.println(p+" "+u);
-		return this.result;
+	}
+	
+	public String result() {	//getter (인수값 x) return만		
+		return this.msg;
 	}
 
 }

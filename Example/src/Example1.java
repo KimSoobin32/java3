@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Example1 {
@@ -19,32 +20,65 @@ public class Example1 {
 		 * 7. pc : 7, 사용자 : 7 => 결과 : 정답입니다. 모든 프로세서는 정지(System.exit(0))
 		 * 배열x
 		 */
-		int pc = (int)(Math.random()*10)+1;
+		//int pc = (int)(Math.random()*10)+1;
 		//System.out.println(pc);
+		Random r = new Random();
+		int pc = r.nextInt(10)+1;	//pc가 뽑은 숫자
+		
 		Scanner s = new Scanner(System.in);
 		Example2 e = new Example2();
-		String msg = null;
-		int w = 5;
+//		String msg = null;
+//		int w = 5;
+//		
+//		while(w>0) {
+//			
+//			System.out.println("총 기회는 "+w+"번 남았습니다. 1~10까지 번호 중 하나의 번호를 입력하세요.");
+//			int user = s.nextInt();
+//			msg = e.game(pc, user);
+//			System.out.println(msg);
+//			if(msg.equals("정답입니다.")) {
+//				System.exit(0);
+//			}
+//					
+//			w--;
+//		}
+//		if(w==0) {
+//			System.out.println("횟수 초과");
+//			System.exit(0);
+//		}
+//		
+//		s.close();
+//		System.gc();
 		
-		while(w>0) {
-			
+		
+		
+		/*
+		 * 일반 random 형식 (random double 자료형)
+		 * int pc = (int)(Math.random()*10)+1;
+		 * 
+		 * util을 이용한 random형식
+		 * Random r = new Random();
+		 * int pc = r.nextInt(10)+1;
+		 * 
+		 */
+		//22
+		int w = 5;
+		do {
 			System.out.println("총 기회는 "+w+"번 남았습니다. 1~10까지 번호 중 하나의 번호를 입력하세요.");
 			int user = s.nextInt();
-			msg = e.game(pc, user);
-			System.out.println(msg);
-			if(msg.equals("정답입니다.")) {
-				System.exit(0);
+			e.randomck(pc,user);
+			String out = e.result();
+			System.out.println(out);
+			int check = out.indexOf("정답");	//indexOf : 단어 검색 (-1:없음, 0:있음)
+			//System.out.println(check);
+			if(check>-1) {
+				break;
 			}
-					
 			w--;
-		}
-		if(w==0) {
-			System.out.println("횟수 초과");
-			System.exit(0);
-		}
-		
+		}while(w>0);
 		s.close();
-		
+		System.exit(0);
+		System.gc();
 
 	}
 
