@@ -12,18 +12,27 @@ public class Example1 {
 		 * 배열 데이터 : 6,13,22,9,12,64,32,47,39
 		 */
 		bb b = new bb();
-		b.sender();
+		//b.sender();
+		//b.call();
 
 	}
 
 }
 
 abstract class aa{
-	int arr[] = {6,13,22,9,12,64,32,47,39};
+	//int arr[] = {6,13,22,9,12,64,32,47,39};
 	public abstract void sender();
+	public void call() {
+		this.sender();
+	}
 }
 
 class bb extends aa{
+	private final int arr[];
+	public bb() {
+		this.arr = new int[]{6,13,22,9,12,64,32,47,39};
+		this.sender();
+	}
 	@Override
 	public void sender() {
 		//System.out.println(Arrays.toString(this.arr));
