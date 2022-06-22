@@ -1,5 +1,3 @@
-import java.security.PublicKey;
-
 public class Exception6 {
 
 	public static void main(String[] args) {
@@ -23,11 +21,11 @@ public class Exception6 {
 		try {
 			int res =  45*3+16+5+22*8;
 			
-			String str = a.pr(res);
+			String str = a.pr(res);	//return값
 			System.out.println(str);
 		}catch (Exception e) {
 			if(e.getMessage()!=null) {
-				System.out.println(e);
+				System.out.println(e.getMessage());
 			}
 		}
 
@@ -36,14 +34,18 @@ public class Exception6 {
 }
 
 class aa{
+	//자료형 메소드에서 return 값 숫자,문자,소수,Object에 따라서 자료형이 선언되어 생성
 	public String pr(int r) throws Exception{
-		String msg="";
+		
 		if(r%2==0) {
-			throw new Exception("짝수");
+			Exception ec = new Exception("짝수-예외처리 발생으로 재확인이 필요합니다.");
+			throw ec;
+			//throw new Exception("짝수-예외처리 발생으로 재확인이 필요합니다.");
 		}else {
-			msg = "홀수값입니다.";
+			String msg = "홀수값입니다.";
+			return msg;
 		}
-		return msg;
+		
 	}
 	
 }
